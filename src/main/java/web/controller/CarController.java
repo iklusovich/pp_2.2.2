@@ -23,6 +23,9 @@ public class CarController {
     @GetMapping(value = "/cars")
 
     public String getCars( @RequestParam(value = "count", defaultValue = "5") int count, ModelMap model) {
+        if (count > 5) {
+            count = 5;
+        }
         model.addAttribute("cars", carService.getCars().stream().limit(count).toList());
         model.addAttribute("title", "Cars list");
         return "cars";
