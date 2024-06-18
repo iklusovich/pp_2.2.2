@@ -19,7 +19,7 @@
                     <tr>
                         <td th:text="${car.getModel()}"></td>
                         <td th:text="${car.getSeries()}"></td>
-                        <td th:text="${car.getColor()}"></td>
+                        <td th:text="${car.getColor()}" th:style="'background:' +  ${car.getColor()}"></td>
                     </tr>
                 </th:block>
         </table>
