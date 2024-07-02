@@ -28,7 +28,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void deleteUser(long id) {
+    public void deleteUser(int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
 

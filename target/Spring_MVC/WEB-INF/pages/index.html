@@ -13,21 +13,21 @@
     <tr>
         <th>FirstName</th>
         <th>LastName</th>
-        <th>Age</th>
+        <th>Age1</th>
     </tr>
 
     <tr th:each="user : ${allUsers}">
-       <td><a th:href="@{'/' + ${user.getId()}}" th:utext="${user.getFirstName()}">UserId</a></td>
+       <td><a th:href="@{'/show/' + ${user.getId()}}" th:utext="${user.getFirstName()}">UserId</a></td>
         <td th:utext="${user.getLastName()}"></td>
       <td th:utext="${user.getAge()}"></td>
         <td>
             <form th:action="@{'edit/' + ${user.getId()}}">
-                <input type="submit" class="buttonEdit" value="Edit"/>
+                <input type="submit"  value="Edit"/>
             </form>
         </td>
         <td>
-            <form th:method="DELETE" th:action="@{'/' + ${user.getId()}}">
-                <input type="submit" class="buttonDelete" value="Delete"/>
+            <form th:method="DELETE" th:action="@{'/delete/' + ${user.getId()}}">
+                <input type="submit" value="Delete"/>
             </form>
         </td>
     </tr>
