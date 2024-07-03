@@ -30,8 +30,8 @@ public class UserController {
         return "add-user";
     }
 
-    @GetMapping("show/{id}")
-    public String showUser(Model model, @PathVariable int id) {
+    @GetMapping("/show")
+    public String showUser(Model model, @RequestParam(value = "id") int id) {
         model.addAttribute("user", userService.showUser(id));
         return "show-user";
     }
@@ -55,7 +55,7 @@ public class UserController {
     }
 
     @GetMapping("delete")
-    public String deletedUser( @RequestParam int id) {
+    public String deletedUser( @RequestParam(value = "id") int id) {
         userService.deleteUser(id);
         return "redirect:/";
     }

@@ -17,7 +17,7 @@
     </tr>
 
     <tr th:each="user : ${allUsers}">
-       <td><a th:href="@{'/show/' + ${user.getId()}}" th:utext="${user.getFirstName()}">UserId</a></td>
+       <td><a th:href="@{/show(id = ${user.getId()})}" th:utext="${user.getFirstName()}">UserId</a></td>
         <td th:utext="${user.getLastName()}"></td>
       <td th:utext="${user.getAge()}"></td>
         <td>
