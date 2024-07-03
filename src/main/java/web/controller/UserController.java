@@ -42,21 +42,20 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editUser(Model model, @PathVariable int id) {
-        System.out.println(id);
+    @GetMapping("/edit")
+    public String editUser(Model model, @RequestParam(value = "id") int id) {
         model.addAttribute("addUser", userService.showUser(id));
         return "edit-user";
     }
 
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public String updateUser(@ModelAttribute("addUser") User user) {
         userService.updateUser(user);
         return "redirect:/";
     }
 
-    @DeleteMapping("delete/{id}")
-    public String deletedUser( @PathVariable int id) {
+    @GetMapping("delete")
+    public String deletedUser( @RequestParam int id) {
         userService.deleteUser(id);
         return "redirect:/";
     }

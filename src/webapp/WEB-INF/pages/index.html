@@ -21,14 +21,14 @@
         <td th:utext="${user.getLastName()}"></td>
       <td th:utext="${user.getAge()}"></td>
         <td>
-            <form th:action="@{'edit/' + ${user.getId()}}">
+            <a th:href="@{/edit(id=${user.getId()})}">
                 <input type="submit"  value="Edit"/>
-            </form>
+            </a>
         </td>
         <td>
-            <form th:method="DELETE" th:action="@{'/delete/' + ${user.getId()}}">
+            <a th:href="@{/delete(id=${user.getId()})}">
                 <input type="submit" value="Delete"/>
-            </form>
+            </a>
         </td>
     </tr>
 </table>
